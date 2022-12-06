@@ -1,0 +1,33 @@
+
+            .vertical-menu {
+  width: 200px; /* Set a width if you like */
+  height:100%;
+   background-color:#cecece; 
+}
+html,body{height: 100%;} 
+.flex-container{ display:flex; height:calc(100% - 56px); } 
+
+.vertical-menu a {
+  background-color: #cecece; /* Grey background color */
+  color: black; /* Black text color */
+  display: block; /* Make the links appear below each other */
+  padding: 12px; /* Add some padding */
+  text-decoration: none; /* Remove underline from links */
+}
+
+.vertical-menu a:hover {
+  background-color:#D6CDA4; /* Dark grey background on mouse-over */
+}
+
+.vertical-menu a.active {
+  background-color: #04AA6D; /* Add a green color to the "active/current" link */
+  color: white;
+}
+.content-container{padding:25px; width:calc(100% - 200px);} 
+.login-container{width:500px;display:bock;margin:auto}
+
+.link.active{background-color:rgb(130 201 125)}
+.link{background-color:#cecece}
+
+
+        

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>Admin Login</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+		integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+		integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+		
+	 <link rel="stylesheet" th:href="@{/verticalmenustyle.css}"> 
+	 <script type="text/javascript" th:src="@{/script.js}"></script>
+	  
+	
+	
+</head>
+
+<body>
+<div th:insert="index2:: header"></div>
+<div class="flex-container">
+
+<div th:insert="index:: sidemenu"></div>
+
+	<div class="content-container">
+	
+		<h3 class="text-center">  Login</h3>
+	<h6 th:text ="${message}" class="text-danger mt-2 text-center"> </h6>
+	<!-- <h6 class="text-danger mt-2 text-center">(or)   </br></br>if we want to go back <a href="#" onclick="goBack()">clickhere</a></h6> -->
+	
+	
+				<div class="login-container">
+					
+		</div>
+	</div>
+    </div>
+    <script type="text/javascript">
+	function register(){
+	window.location='/students/adminregistrationshowup';
+	}
+	</script>
+    
+</body>
+
+</html>

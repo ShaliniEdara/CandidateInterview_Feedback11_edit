@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>CandidateInterview/Feedback</title>
+        
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+		integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+		integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+	
+      <link rel="stylesheet" th:href="@{/verticalmenustyle.css}"> 
+      
+      <script type="text/javascript" th:src="@{/script.js}"></script>
+      
+      <style>
+      body{font-size:16px}
+      .card{height:230px;line-height:24px;} 
+.card-header{font-weight:bold;font-size:18px;} 
+         
+          
+      </style>
+	  
+        
+</head>
+
+ <body>
+ 
+ <!--Top navbar -->
+                             
+ <div th:fragment="header">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#"> <h2>Candidate Interview/Feedback</h2></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" onclick="logOut()">Logout</button>
+
+      </li>
+      
+    </ul>
+    
+  </div>
+</nav>  
+
+
+
+</div>
+
+<div class="flex-container">
+<!-- vertival bar -->
+
+<div class="vertical-menu"  id="myDIV" th:fragment="sidemenu" >
+       <a  class="link">Home</a>
+       
+       <a  class="link" >Admin </a>
+       <a  class="link" >Candidate</a>
+      
+       <a  class="link">InterviewPannel </a>
+       
+      </div>
+      
+      <div class="content-container">
+          <div class="mt-5">
+          
+          <h6 th:text ="${message}" class="text-danger mt-2 text-center"></h6>
+          </div>
+          </div>
+      
+
+</div>
+</body>
+</html>

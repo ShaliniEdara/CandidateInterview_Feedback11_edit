@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>Add User</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="htt ps://use.fontawesome.com/releases/v5.4.1/css/all.css"
+	integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+	crossorigin="anonymous">
+<!-- <link rel="stylesheet" href="../css/shards.min.css"> -->
+
+<link rel="stylesheet" th:href="@{/verticalmenustyle.css}"> 
+<script type="text/javascript" th:src="@{/script.js}"></script>
+	  
+</head>
+<body>
+<div th:insert="index:: header"></div>
+<div class="flex-container">
+
+<div th:insert="index:: sidemenu"></div>
+
+	<div class="content-container">
+
+<a href="/students/back" class="btn btn-primary"><i
+							class="fas fa-user-plus ml-2"> back</i></a>
+					
+					
+	
+	<h2 class="text-center"> Pannel Registration Form</h2>
+	
+	<div class="card">
+	  <div class="card-body">
+		
+				<div class="registration-group">
+					<form action="#" th:action="@{/students/pannelregistration}"
+						th:object="${pannel}" method="post">
+						
+						
+							
+						<div class="row">
+							<div class="form-group col-md-12">
+								<label for="username" class="col-form-label">UserName</label> <input
+									type="email" th:field="*{username}" class="form-control" id="username"
+									placeholder="username"> <span
+									th:if="${#fields.hasErrors('username')}" th:errors="*{username}"
+									 
+									class="text-danger"></span>
+							</div>
+							<div class="form-group col-md-12">
+								<label for="password" class="col-form-label">Email</label> <input
+									type="password" th:field="*{password}" class="form-control" id="password"
+									placeholder="password"> <span
+									th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
+									class="text-danger"></span>
+							</div>
+
+							
+								<div class="form-group col-md-12">
+								<label for="pannel" class="col-form-label">Pannel</label>
+                                    <select  class="form-control" id="pannel" name="pannel" th:field="*{pannel}">
+									 
+									 <option  value="">Select</option>
+                                     <option  value="pannel A">pannel A</option>
+                                     <option  value="pannel B">pannel B</option>
+                                     <option  value="pannel C">pannel C</option>
+                                     
+                                    </select>
+							</div>
+									<div class="col-md-12 text-center" >
+								<input type="submit" class="btn btn-success"  value="Add Candidate">
+							</div>
+
+							<div class="form-group col-md-8"></div>
+
+						</div>
+					</form>
+					</div>
+			</div>
+		</div>
+	</div>
+	</div>
+</body>
+</html>

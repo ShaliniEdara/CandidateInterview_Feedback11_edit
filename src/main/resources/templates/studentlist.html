@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>Users</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+	integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+	crossorigin="anonymous">
+	
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+											
+	
+	
+<!-- <link rel="stylesheet" href="../css/shards.min.css"> -->
+
+ <link rel="stylesheet" th:href="@{/verticalmenustyle.css}"> 
+ 
+ <script type="text/javascript" th:src="@{/script.js}"></script>
+</head>
+<body>
+<div th:insert="index2:: header"></div>
+<div class="flex-container">
+
+<div th:insert="index:: sidemenu"></div>
+
+	<div class="content-container">
+	
+	
+	 
+	<a href="/students/back" class="btn btn-success" >
+		      					←back</a>
+	
+					<h2 class="text-center">List of Candidates</h2></br>
+<div class="card my-3">
+		 <div class="card-body">
+			   
+				<div th:switch="${students}" class="container my-3">
+				<div>
+					       <form th:action="@{/students/filter}" method="get" onsubmit="search()">
+					            <label for="filter" class="col-form-label">Filter</label>
+					            
+
+                                        <select id="field" name="field" th:value="${field}">
+									
+									   <option th:value="select">select</option>
+									   <option th:value="name">select by name</option>
+									   <option th:value="phoneNo">select by phoneNo</option>
+									   <option th:value="email">select by email</option>
+									   <option th:value="address">select by address</option>
+									   <option th:value="alternatePhoneNumber"> select by alternatePhoneNumber</option>
+									   <option th:value="interviewStatus"> select by interviewStatus</option>
+									   <option th:value="pincode"> select by Pincode</option>
+									   <option th:value="experience"> select by Experience</option>
+									   <option th:value="designation"> select by Designation</option>
+									   <option th:value="currentctc"> select by Current CTC</option>
+									   <option th:value="exceptedctc"> select by Excepted CTC</option>
+									   <option th:value="pannel"> select by Pannel</option>
+									   
+    
+
+									   </select> 
+									 Search:<input type="text" name="keyword" id="keyword" th:value="${keyword}" required/>
+					        <input type="submit" value="search"/>
+					      
+					       <input type="button" value="clear"  onclick="clearFilter()"/>
+					       
+						     </form>
+					</div>
+					
+					
+					<div>
+						<h2 th:case="null">No Students yet!</h2>
+						<div th:case="*" class="table-responsive mt-2">
+							<table class="table  table-bordered">
+								<thead>
+									<tr>
+										<th>Name</th>
+										<th>Email</th>
+										<th>Phone No</th>
+										<th>AlternatePhoneNo</th>
+										<th>Address</th>
+										<th> InterviewStatus</th>
+										<th>Pincode</th>
+										<th>Experience</th>
+										<th>Designation</th>
+										<th>Current CTC</th>
+										<th>EXcepted CTC</th>
+										<th>Pannel</th>
+										<th>Created Date</th>
+										<th>Created By</th>
+										<th>Modify Date</th>
+										<th>Modify By</th>
+										<th>Edit</th>
+										<th>Delete</th>
+									</tr>
+								</thead>
+								<tbody id="list">
+									<tr th:each="student : ${students}">
+										<td th:text="${student.name}"></td>
+										<td th:text="${student.email}"></td>
+										<td th:text="${student.phoneNo}"></td>
+										<td th:text="${student.alternatePhoneNumber}"></td>
+										<td th:text="${student.address}"></td>
+										<td th:text="${student.interviewStatus}"></td>
+										<td th:text="${student.pincode}"></td>
+										<td th:text="${student.experience}"></td>
+										<td th:text="${student.designation}"></td>
+										<td th:text="${student.currentctc}"></td>
+										<td th:text="${student.exceptedctc}"></td>
+										<td th:text="${student.pannel}"></td>
+										<td th:text="${student.createddate}"></td>
+										<td th:text="${student.createdby}"></td>
+										<td th:text="${student.modifydate}"></td>
+										<td th:text="${student.modifyby}"></td>
+										
+									    <td><a th:href="@{/students/edit/{id}(id=${student.id})}"
+											class="btn btn-success" ><i class="fas fa-user-edit ml-2"></i></a></td>
+										<td><a
+											th:href="@{/students/delete/{id}(id=${student.id})}"
+											class="btn btn-success"  onclick="return confirm('Are you sure you want to delete this candidate' )"><i class="fas fa-user-times ml-2"></i></a></td>
+											
+											
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						</div>
+						
+		<div th:if = "${totalPages > 1}">
+			<div class = "row col-sm-15">
+				<div class = "col-sm-5">
+					Total Candidates: [[${totalItems}]] 
+				</div>
+				<div class = "col-sm-2">
+					<span th:each="i: ${#numbers.sequence(1, totalPages)}">
+						<a th:if="${currentPage != i}" th:href="@{'/students/page/' + ${i}}">[[${i}]]</a>
+						<span th:unless="${currentPage != i}">[[${i}]]</span>  &nbsp; &nbsp;
+					</span>
+				</div>
+				
+				&nbsp; &nbsp;
+							<a th:if="${currentPage > 1}" th:href="@{'/students/page/' + ${currentPage - 1 }}">Previous</a>
+							<span th:unless="${currentPage > 1}">Previous</span>
+							&nbsp; &nbsp;
+				<div class = "col-sm-1">
+					<a th:if="${currentPage < totalPages}" th:href="@{'/students/page/'+ ${currentPage + 1}}">Next</a>
+					<span th:unless="${currentPage < totalPages}">Next</span>
+				</div>
+				 <div class="col-sm-1">
+    				<a th:if="${currentPage < totalPages}" th:href="@{'/students/page/' + ${totalPages}}">Last</a>
+					<span th:unless="${currentPage < totalPages}">Last</span>
+   				 </div>
+			</div>
+	</div>
+			
+						
+						
+			</div>
+			</div>
+		</div>
+	</div>
+	
+					
+					
+					
+<script type="text/javascript">
+    function clearFilter(){
+	window.location ='/students/list';
+}
+function confirmation(){
+var result = confirmation("Are you sure to delete");
+if(result){
+console.log("deleted")
+}
+}
+
+function search() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("keyword");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("list");
+    li = ul.getElementsByTagName("tr");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+} 
+
+
+
+</script>
+
+
+						
+</body>
+</html>

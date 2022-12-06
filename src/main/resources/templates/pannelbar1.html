@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>Admin Login</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+		integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+		integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+	<!-- <link rel="stylesheet" href="../css/shards.min.css"> -->
+	<link rel="stylesheet" th:href="@{/verticalmenustyle.css}"> 
+	<script type="text/javascript" th:src="@{/script.js}"></script>
+	
+</head>
+
+<body>
+<div th:insert="index2:: header"></div>
+<div class="flex-container">
+
+<div th:insert="index:: sidemenu"></div>
+
+	<div class="content-container">
+
+
+	<a href="/students/back" class="btn btn-success" >
+							 ←Back</i></a>
+							
+							<h3 class="text-center">Panels</h3>
+		
+		<div class="card">
+			<div class="card-body">
+				<div class="col-md-10">
+					<form action="#" th:action="@{/students/pannelview}" method="post" th:object="${Student}">
+					  <h4 th:text ="${message}"></h4>
+						
+
+							<div class="col-md-6">
+							<label for="password" class="col-form-label">PanelA</label> 
+								<input type="submit" class="btn btn-success"  value="pannel A" name = "pannel">
+							</div>
+							<br>
+							<div class="col-md-6">
+							<label for="password" class="col-form-label">PanelB</label> 
+								<input type="submit" class="btn btn-success"  value="pannel B" name = "pannel">
+							</div>
+							<br>
+							<div class="col-md-6">
+							<label for="password" class="col-form-label">PanelC</label> 
+								<input type="submit" class="btn btn-success"  value="pannel C" name = "pannel">
+							</div>
+							
+							
+
+							<div class="form-group col-md-8"></div>
+						</div>
+
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

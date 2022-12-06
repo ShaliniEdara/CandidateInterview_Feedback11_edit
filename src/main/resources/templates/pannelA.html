@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>Users</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+	integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+	crossorigin="anonymous">
+<!-- <link rel="stylesheet" href="../css/shards.min.css"> -->
+<link rel="stylesheet" th:href="@{/verticalmenustyle.css}"> 
+
+<script type="text/javascript" th:src="@{/script.js}"></script>
+</head>
+<body>
+<div th:insert="index2:: header"></div>
+<div class="flex-container">
+
+<div th:insert="index:: sidemenu"></div>
+
+	<div class="content-container">
+	
+	<div class="container-fluid">
+	
+	
+	
+	<h3 class="text-center">Assigined Candidates</h3>
+		<div class="card">
+		
+			<div class="card-body">
+				<div th:switch="${students}" class="container my-5">
+				<!--<div>
+					       <form th:action="@{/students/candidatefilter}" method="get" onsubmit="search()">
+					            <label for="filter" class="col-form-label">Filter</label>
+					            
+
+                                        <select id="filter" name="field">
+									
+									   <option th:value="select">select</option>
+									   <option th:value="name">select by name</option>
+									   <option th:value="phoneNo">select by phoneNo</option>
+									   <option th:value="email">select by email</option>
+									   <option th:value="address">select by address</option>
+									   <option th:value="alternatePhoneNumber"> select by alternatePhoneNumber</option>
+									   <option th:value="interviewStatus"> select by interviewStatus</option>
+									   <option th:value="pincode"> select by Pincode</option>
+									   <option th:value="experience"> select by Experience</option>
+									   <option th:value="designation"> select by Designation</option>
+									   <option th:value="currentctc"> select by Current CTC</option>
+									   <option th:value="exceptedctc"> select by Excepted CTC</option>
+									   <option th:value="pannel"> select by Pannel</option>
+									   
+    
+
+									   </select> 
+									 Search:<input type="text" name="keyword" id="keyword" th:value="${keyword}" required/>
+					        <input type="submit" value="search"/>
+					      
+					       <input type="button" value="clear"  onclick="clearFilter()"/>
+					       
+						     </form>
+					</div> -->
+					
+				
+				
+				</form>
+					   <div>
+						<h2 th:case="null">Pannel Candidates</h2>
+						<div th:case="*" class="table-responsive">
+							<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th>Name</th>
+										<th>Email</th>
+										<th>Phone No</th>
+										<th>Address</th>
+										<th>alternatePhoneNo</th>
+										<th>InterviewStatus</th>
+										<th>pincode</th>
+										<th>experience</th>
+										<th>designation</th>
+										<th>CurrentCTC</th>
+                                        <th>ExceptedCTC</th>
+										<th>pannel</th>
+										<th>Edit</th>
+										<!--<th>Delete</th>-->
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:each="student : ${students}">
+										<td th:text="${student.name}"></td>
+										<td th:text="${student.email}"></td>
+										<td th:text="${student.phoneNo}"></td>
+										<td th:text="${student.address}"></td>
+										<td th:text="${student.alternatePhoneNumber}"></td>
+										<td th:text="${student.interviewStatus}"></td>
+										<td th:text="${student.pincode}"></td>
+										<td th:text="${student.experience}"></td>
+										<td th:text="${student.designation}"></td>
+										<td th:text="${student.currentctc}"></td>
+										<td th:text="${student.exceptedctc}"></td>
+										<td th:text="${student.pannel}"></td>
+										
+										
+										<td><a th:href="@{/students/pannelcandidateedit/{id}(id=${student.id})}"
+											class="btn btn-success" ><i class="fas fa-user-edit ml-2"></i></a></td>
+									<!--	<td><a
+											th:href="@{/students/pannelAdelete/{id}(id=${student.id})}"
+											class="btn btn-primary"><i class="fas fa-user-times ml-2" onclick="return confirm('Are you sure you want to delete this candidate' )"></i></a></td> -->
+									</tr>
+								</tbody>
+							</table>
+							</form>
+							
+							
+					</div>
+	              </div>
+	
+	             </div>
+	
+	        </div>
+					
+	
+</body>
+</html>

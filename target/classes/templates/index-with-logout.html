@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>CandidateInterview/Feedback</title>
+        
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+		integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+		integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+	
+      <link rel="stylesheet" th:href="@{/verticalmenustyle.css}"> 
+      
+      <script type="text/javascript" th:src="@{/script.js}"></script>
+      
+      <style>
+      body{font-size:16px}
+      .card{height:230px;line-height:24px;} 
+.card-header{font-weight:bold;font-size:18px;} 
+         
+          
+      </style>
+	  
+        
+</head>
+
+ <body>
+ <!--Top navbar without logout -->
+                             
+<div th:fragment="headerwithoutlogout">
+    <nav class="navbar navbar-expand-lg navbar-light bg-success">
+  <a class="navbar-brand" href="#" style="color: #fff" > <h2>Candidate Interview/Feedback</h2></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+       <li class="nav-item active">
+        <button class="btn btn-success my-2 my-sm-0" type="submit" onclick="logOut()">Logout</button>
+        </li>
+      
+    </ul>
+    
+  </div>
+</nav> 
+</div>
+
+<div class="flex-container">
+<!-- vertival bar -->
+
+<div class="vertical-menu"  id="myDIV" th:fragment="sidemenu" >
+       <a  class="link" id="home" th:href="@{/students/home}">Home</a>
+       
+       <a  class="link" id="admin" th:href="@{/students/Adminlink}">Admin </a>
+       <a  class="link" id="candidate" th:href="@{/students/candidatelink}">Candidate</a>
+      
+       <a  class="link" id="panel" th:href="@{/students/pannerlink}" >InterviewPanel </a>
+       
+      </div>
+      
+
+
+<div class="content-container">
+<div class="mt-5">
+Candidate Interview/Feedback  is a platform,which helps Companies to choose right talent with minimum efforts there by reducing the Time and Cost. Candidate Interview/FeedBack helps candidate's to standout with Technical Skill rating to catch the attention of the companies and Recruiters.
+ </div>
+ 
+ <div class="row my-5">
+   <div class="col-md-4">
+	<div class="card">
+	    <div class="card-header">Admin</div>
+	    <div class="card-body">
+	    Get the Technical Interviews done from Candidate Interview/FeedBack super fast.
+100 + Technologies, 2000+ Techncial Interviewers
+	    </div>
+	</div>
+   </div>
+  <div class="col-md-4">
+	<div class="card">
+	<div class="card-header">Interview Panel</div>
+	    <div class="card-body">
+	    We need you to help the IT Industry to identify the right talent for the Job. We welcome you to Join the strong community of 750+ interviewers of Various technologies.
+	    </div>
+	</div>
+   </div>
+   <div class="col-md-4">
+	<div class="card">
+	    <div class="card-header">Candidate</div>
+	    <div class="card-body">
+	    Show case your technical Skills from the Technical Interviews done at Candidate Interview/FeedBack .
+ Candidate get rated/feedbck , get  Visibility for applying the jobs.
+	    </div>
+	</div>
+   </div>
+</div> 
+
+</div>
+
+
+
+</div>
+
+
+
+    
+    </body>
+    
+</html>
+   

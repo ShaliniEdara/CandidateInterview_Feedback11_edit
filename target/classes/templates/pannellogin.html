@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>pannel Login</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+		integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+		integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+	<!-- <link rel="stylesheet" href="../css/shards.min.css"> -->
+	
+	<link rel="stylesheet" th:href="@{/verticalmenustyle.css}"> 
+	<script type="text/javascript" th:src="@{/script.js}"></script>
+	
+	
+</head>
+
+<body>
+<div th:insert="index:: headerwithoutlogout"></div>
+<div class="flex-container">
+
+<div th:insert="index:: sidemenu"></div>
+
+	<div class="content-container">
+	
+	
+
+	<div class="login-container">
+		<h3  class="text-center"> Panel Login</h3>
+		
+				<h6 th:text ="${message}" class="text-danger mt-2 text-center"></h6>
+					<form action="#" th:action="@{/students/pannerlogincheckdetails}" method="post" th:object="${Pannel}">
+					  
+						<div class="row">
+							<div class="form-group col-md-12">
+								<label for="username" class="col-form-label">UserName</label> 
+								<input
+									type="email" class="form-control" id="username"
+									placeholder="UserName" name = "username" required>
+							</div>
+							<div class="form-group col-md-12">
+								<label for="password" class="col-form-label">Password</label> 
+								<input
+									type="text" class="form-control" id="password"
+									placeholder="password" name = "password" required>
+							</div>
+							
+							<!--<div class="form-group col-md-12">
+								<label for="pannel" class="col-form-label">Pannel</label> 
+								<input
+									type="text" class="form-control" id="pannel"
+									placeholder="Enter pannel name" name ="pannel">
+							</div>-->
+							
+							
+							<!--<div class="form-group col-md-12">
+								<label for="pannel" class="col-form-label">Pannel</label>
+                                    <select  class="form-control"  name= "pannel" required>
+									 
+									 <option  value="">Select</option>
+                                     <option  value="pannel A">pannel A</option>
+                                     <option  value="pannel B">pannel B</option>
+                                     <option  value="pannel C">pannel C</option>
+                                     
+                                    </select>
+							</div>-->
+							
+							
+
+							<div class="col-md-6">
+								<input type="submit" class="btn btn-success"  value="submit" name = "action">
+							</div>
+							<!--<div class="col-md-6">
+								new candidate<input type="submit" class="btn btn-primary" value="register here" name = "action">
+							</div>-->
+
+							<div class="form-group col-md-8"></div>
+						</div>
+
+					</form>
+				</div>
+		
+	</div>
+</body>
+
+</html>

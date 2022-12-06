@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>Update User</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+	integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+	crossorigin="anonymous">
+	
+	<link rel="stylesheet" th:href="@{/verticalmenustyle.css}"> 
+	<script type="text/javascript" th:src="@{/script.js}"></script>
+</head>
+<body>
+<div th:insert="index2:: header"></div>
+<div class="flex-container">
+
+<div th:insert="index:: sidemenu"></div>
+
+	<div class="content-container">
+<h3> Update Candidate Form</h3>
+		<div class="card">
+			<div class="card-body">
+				<div class="col-md-12">
+					<form action="#"
+						th:action="@{/students/pannelcandidateupdate/{id}(id=${student.id})}"
+						th:object="${student}" method="post">
+						<div class="form-group ">
+						    <input type="submit" class="btn btn-success mr-2 float-right"  value="cancel" name="action" >
+							<input type="submit" class="btn btn-success mr-2 float-right" 
+									value="Update Candidate" name="action"> &nbsp; &nbsp;
+							</div>
+						<div class="row">
+							<div class="form-group col-md-6">
+								<label for="name" class="col-form-label">Name</label> <input
+									type="text" th:field="*{name}" class="form-control" id="name"
+									placeholder="Name" readonly> <span
+									th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
+									class="text-danger"></span>
+							</div>
+							<div class="form-group col-md-6">
+								<label for="email" class="col-form-label">Email</label> <input
+									type="email" th:field="*{email}" class="form-control" id="email"
+									placeholder="Email" readonly> <span
+									th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
+									class="text-danger"></span>
+							</div>
+							<div class="form-group col-md-6">
+								<label for="number" class="col-form-label">Phone No</label> <input
+									type="text" th:field="*{phoneNo}" class="form-control"
+									id="phoneNo" placeholder="phoneNo" readonly> <span
+									th:if="${#fields.hasErrors('phoneNo')}" th:errors="*{phoneNo}"
+									class="text-danger"></span>
+							</div>
+							<div class="form-group col-md-6">
+								<label for="Address" class="col-form-label">Address</label> <input
+									type="text" th:field="*{Address}" class="form-control"
+									id="Address" placeholder="Address" readonly> <span
+									th:if="${#fields.hasErrors('Address')}" th:errors="*{Address}"
+									class="text-danger"></span>
+								</div>	
+							<div class="form-group col-md-6">
+								<label for="alternatePhoneNumber" class="col-form-label">AlternatePhoneNumber</label> <input
+									type="text" th:field="*{alternatePhoneNumber}" class="form-control"
+									id="alternatePhoneNumber" placeholder="alternatePhoneNumber" readonly> <span
+									th:if="${#fields.hasErrors('alternatePhoneNumber')}" th:errors="*{alternatePhoneNumber}"
+									class="text-danger"></span>
+									</div>
+									
+									
+									<div class="form-group col-md-6">
+								<label for="pincode" class="col-form-label">Pincode</label> <input
+									type="text" th:field="*{pincode}" class="form-control"
+									id="pincode" placeholder="pincode" readonly> <span
+									th:if="${#fields.hasErrors('pincode')}" th:errors="*{pincode}"
+									class="text-danger"></span>
+									</div>
+									
+									<div class="form-group col-md-6">
+								<label for="status" class="col-form-label">Interview Status</label>
+								
+                                    <select id="status" class="form-control" name="interviewStatus"  th:field="*{interviewStatus}">
+									 
+									 <option  value="Select">Select</option>
+                                     <option  value="Ready to take Interview">Ready to take Interview</option>
+                                     <option  value="Interview Completed">Interview Completed</option>
+                                     <option  value="Postponed Interview">Postponed Interview</option>
+                                     <option  value="Not eligible">Not eligible</option>
+                                     <option  value="Selected">Selected</option>
+                                    </select>
+							</div>
+							
+							<div class="form-group col-md-6">
+								<label for="currentctc" class="col-form-label">Current CTC</label> <input
+									type="text" th:field="*{currentctc}" class="form-control"
+									id="currentctc" placeholder="currentctc" readonly> <span
+									th:if="${#fields.hasErrors('currentctc')}" th:errors="*{currentctcy}"
+									class="text-danger"></span>
+							</div>
+							
+							<div class="form-group col-md-6">
+								<label for=" exceptedctc" class="col-form-label">Excepted CTC</label> <input
+									type="text" th:field="*{exceptedctc}" class="form-control"
+									id=" exceptedctc" placeholder=" exceptedctc" readonly> <span
+									th:if="${#fields.hasErrors('exceptedctc')}" th:errors="*{exceptedctc}"
+									class="text-danger"></span>
+							</div>
+							
+							<div class="form-group col-md-6">
+								<label for="experience" class="col-form-label">Experience</label> <input
+									type="text" th:field="*{experience}" class="form-control"
+									id="experience" placeholder="experience" readonly> <span
+									th:if="${#fields.hasErrors('experience')}" th:errors="*{experience}"
+									class="text-danger"></span>
+							</div>
+							
+							<!-- <div class="form-group col-md-6">
+								<label for="pannel" class="col-form-label">Pannel</label> <input
+									type="text" th:field="*{pannel}" class="form-control"
+									id="pannel" placeholder="pannel" > <span
+									th:if="${#fields.hasErrors('pannel')}" th:errors="*{pannel}"
+									class="text-danger"></span>
+							</div> -->
+							
+							<div class="form-group col-md-6">
+								<label for="pannel" class="col-form-label">Pannel</label>
+                                    <select  class="form-control" id="interviewStatus" name="pannel" th:field="*{pannel}" readonly>
+									 
+									 <option  value="Select">Select</option>
+                                     <option  value="pannel A">pannel A</option>
+                                     <option  value="pannel B">pannel B</option>
+                                     <option  value="pannel C">pannel C</option>
+                                     
+                                    </select>
+							</div>
+							
+							
+							
+							<div class="form-group col-md-6">
+								<label for="designation" class="col-form-label">Designation</label> <input
+									type="text" th:field="*{designation}" class="form-control"
+									id="designation" placeholder="designation" readonly> <span
+									th:if="${#fields.hasErrors('designation')}" th:errors="*{designation}"
+									class="text-danger"></span>
+							</div>
+							
+					
+
+							<div class=" col-md-6">
+								<input type="submit" class="btn btn-success" 
+									value="Update Candidate" name="action">
+							</div>
+							
+							<div class="col-md-6 ">
+							<input type="submit"  class="btn btn-success" value="cancel" name="action">
+							</div> 
+							
+							
+							
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+	function cancel(){
+	window.location='/students/pannerlink';
+	}
+	</script>
+</body>
+</html>
